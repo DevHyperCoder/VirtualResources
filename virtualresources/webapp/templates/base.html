@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Resources</title>
+    {% load static %}
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src={% static "images/logo.png" %} width="125px">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/explore">Explore</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/profile">Account</a></li>
+                        <li><a href="/signin">Sign In</a></li>
+                        <li><a href="/register">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            {% block body %}
+            {% endblock %}
+            <!-- Beemo fill this footer block here -->
+            <footer></footer>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+Explore our products
+{% endblock %}
+
+{% block body %}
+
+<!-- @Beemo where to implement this? -->
+<!-- Search bar -->
+<p>Search bar yet to be implemented</p>
+
+<!-- Cards -->
+<div class="small-container">
+    <h2 class="title">Featured Products</h2>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-4">
+            <!-- TODO add this image later -->
+            <!-- <img src="images/product-1.jpg"> -->
+            <h4> {{product.name}}</h4>
+            <p>{{product.desc}}</p>
+
+            <!-- TODO COMPLETE RATING -->
+            <!-- <div class="rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            </div> -->
+            
+            <p>${{product.price}}</p>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
