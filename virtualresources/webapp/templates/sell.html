@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+Sell a product
+{% endblock %}
+
+{% block body %}
+<form action="/sell" method="post">
+{% csrf_token %}
+
+{{form}}
+<button type="submit">Create my product</button>
+</form>
+{% endblock %}

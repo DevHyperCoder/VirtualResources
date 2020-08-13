@@ -14,3 +14,22 @@ def explore_product(request):
                   {'products': Product.objects.all()})
 
 # Sell a product
+# Make it login required
+def sell_product(request):
+    product_creation_form = CreateProductForm(request.POST or None)
+    if request.method == "POST":
+        print("POSTED")
+        if product_creation_form.is_valid():
+            # product_creation_form
+            print("form is valid")
+            product :Product= product_creation_form.save(commit = False)
+            product.seller = request.user
+            product.save()
+            
+            
+
+    return render(
+        request,
+        "sell.html",
+        {'form':product_creation_form}
+    )

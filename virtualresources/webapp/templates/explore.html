@@ -20,6 +20,7 @@ Explore our products
             <!-- <img src="images/product-1.jpg"> -->
             <h4> {{product.name}}</h4>
             <p>{{product.desc}}</p>
+            <p>{{product.id}}</p>
 
             <!-- TODO COMPLETE RATING -->
             <!-- <div class="rating">
@@ -29,13 +30,63 @@ Explore our products
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star-half-o" aria-hidden="true"></i>
             </div> -->
-            
+
             <p>${{product.price}}</p>
         </div>
 
         {% endfor %}
+        <div class="testimonial">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <!-- <div class="rating">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            </div> -->
+                        <img src="images/user-1.png" alt="">
+                        <h3>Martha Parker</h3>
+                    </div>
+                    <div class="col-3">
+                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <!-- <div class="rating">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div> -->
+                        <img src="images/user-2.png" alt="">
+                        <h3>Eric Harper</h3>
+                    </div>
+                    <div class="col-3">
+                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <!-- <div class="rating">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    </div>-->
+                                    <img src="images/user-3.png" alt="">
+                                    <h3>Pepper Potts</h3>
+                                </div> 
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
     </div>
-</div>
 
 
-{% endblock %}
+    {% endblock %}
