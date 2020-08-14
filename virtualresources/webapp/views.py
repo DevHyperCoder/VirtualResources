@@ -1,14 +1,8 @@
 from django.shortcuts import render,redirect
 from .forms import RegisterForm
-from .models import UserProfile
 from django.contrib.auth import login,authenticate
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import HttpResponseRedirect,HttpResponse
-# Home page
-def home(request):
-    print(request.user)
-    return render(request,"home.html")
 
 # Sign in route (LOGIN)
 def sign_in(request):
