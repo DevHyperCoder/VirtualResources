@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+Buy {{product.title}}
+{% endblock %}
+
+{% block body %}
+
+{% if product %}
+
+<!-- Card view -->
+<h2>Buy this product =></h2>
+<div class="row">
+    <!-- TODO center this div or card -->
+    <div class="col-4">
+        <!-- TODO add this image later -->
+        <!-- <img src="images/product-1.jpg"> -->
+        <h4> {{product.name}}</h4>
+        <p>{{product.desc}}</p>
+
+        <!-- TODO COMPLETE RATING -->
+        <!-- <div class="rating">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+        </div> -->
+
+        <p>${{product.price}}</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="id" value="{{product.id}}" hidden=True>
+            <button type="submit">Buy Now! for ${{product.price}} only!</button>
+        </form>
+    </div>
+
+</div>
+{% else %}
+<h3>We could not find the product you specified!</h3>
+<form action="/explore">
+    {% csrf_token %}
+
+    <button type="submit">Go back to exploring more products</button>
+</form>
+{% endif %}
+
+{% endblock %}
