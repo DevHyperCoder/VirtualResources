@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+Checkout
+{% endblock %}
+
+{% block body %}
+
+<h1>You have successfully purchased {{product.name}} worth ${{product.price}}</h1>
+<button type="button"><a href="/explore">Explore more products</a></button>
+
+
+{% endblock %}
