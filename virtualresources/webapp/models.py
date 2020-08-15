@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 # Extended User Model (UserProfile)
 class UserProfile(AbstractUser):
     bio = models.CharField(max_length=1000)
+    money = models.IntegerField(default=1000)
 
 # Product Model
 class Product(models.Model):
