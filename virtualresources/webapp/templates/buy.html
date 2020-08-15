@@ -6,6 +6,17 @@ Buy {{product.title}}
 
 {% block body %}
 
+<!-- Display the not_enough_error -->
+<!-- TODO make them clickable -->
+{% if not_enough_error %}
+<h1>Seems you don't have enough money to buy this product</h1>
+<p>Go to this link to redeem a gift card or here to sell a product</p>
+{% endif %}
+{% if same_user%}
+<h1>You can't buy your own product!</h1>
+<p>Explore other products!</p>
+{% else %}
+
 {% if product %}
 
 <!-- Card view -->
@@ -43,6 +54,7 @@ Buy {{product.title}}
 
     <button type="submit">Go back to exploring more products</button>
 </form>
+{% endif %}
 {% endif %}
 
 {% endblock %}
