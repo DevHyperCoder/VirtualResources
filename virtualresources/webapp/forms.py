@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django import forms
-from .models import UserProfile,Product
+from .models import Ratings, UserProfile,Product
 
 # CreateProductForm 
 class CreateProductForm(forms.ModelForm):
@@ -14,6 +14,18 @@ class CreateProductForm(forms.ModelForm):
             'name',
             'desc',
             'price'
+        ]
+
+# CreateRatingForm
+class CreateRatingForm(forms.ModelForm):
+    text = forms.CharField(max_length=200)
+    rating_num = forms.IntegerField()
+
+    class Meta:
+        model = Ratings
+        fields =[
+            'text',
+            'rating_num'
         ]
 
 # RegisterForm 
