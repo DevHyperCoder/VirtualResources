@@ -11,20 +11,22 @@ Explore our products
 <p>Search bar yet to be implemented</p>
 
 <!-- Cards -->
-<div class="small-container">
+<div class="small-container single-product">
+
     <h2 class="title">Featured Products</h2>
+
     <div class="row">
         {% for product in products %}
         <!-- TODO make the whole div clickable -->
         <div class="col-4">
             <!-- TODO add this image later -->
             <!-- <img src="images/product-1.jpg"> -->
-            <h4><a href = "/buy?id={{product.id}}" >{{product.name}}</a></h4>
-            <p>{{product.desc}}</p>
-            <!-- <p>{{product.id}}</p> -->
+            <h3><a href="/buy?id={{product.id}}">{{product.name}}</a></h4>
+                <p>{{product.desc}}</p>
+                <!-- <p>{{product.id}}</p> -->
 
-            <!-- TODO COMPLETE RATING -->
-            <!-- <div class="rating">
+                <!-- TODO COMPLETE RATING -->
+                <!-- <div class="rating">
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -32,7 +34,7 @@ Explore our products
                 <i class="fa fa-star-half-o" aria-hidden="true"></i>
             </div> -->
 
-            <p>${{product.price}}</p>
+                <p>${{product.price}}</p>
         </div>
 
         {% endfor %}
