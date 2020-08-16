@@ -1,8 +1,7 @@
 from datetime import date
 from django.db import models
 from django.contrib.auth.models import AbstractUser, User
-
-import datetime
+from django.utils.timezone import now
 
 # Extended User Model (UserProfile)
 class UserProfile(AbstractUser):
@@ -33,6 +32,6 @@ class Ratings(models.Model):
         default=1
     )
     text = models.CharField(max_length=200)
-    created_date = models.DateField(default=datetime.datetime.now())
+    created_date = models.DateField(default=now())
 
 
