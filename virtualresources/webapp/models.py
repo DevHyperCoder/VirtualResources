@@ -1,5 +1,8 @@
+from datetime import date
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
+
+import datetime
 
 # Extended User Model (UserProfile)
 class UserProfile(AbstractUser):
@@ -16,5 +19,20 @@ class Product(models.Model):
         on_delete=models.CASCADE,
         default=1)
     rating = models.PositiveIntegerField(default=0)
+
+# Ratings Model
+class Ratings(models.Model):
+    product_id = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        default=1
+    )
+    user = models.ForeignKey(
+        UserProfile,
+        on_delete=models.CASCADE,
+        default=1
+    )
+    text = models.CharField(max_length=200)
+    created_date = models.DateField(default=datetime.datetime.now())
 
 
