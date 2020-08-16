@@ -32,6 +32,6 @@ class Ratings(models.Model):
         default=1
     )
     text = models.CharField(max_length=200)
-    created_date = models.DateField(default=now())
+    created_date = models.DateField(default=now)
 
 
