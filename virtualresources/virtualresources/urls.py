@@ -28,5 +28,6 @@ urlpatterns = [
     path("contact", reach_views.contact_page, name="contact_page"),
     path("sell", product_view.sell_product, name="sell"), 
     path('buy', product_view.buy_product, name='buy'),
-    path('checkout',product_view.checkout,name="checkout")
+    path('checkout',product_view.checkout,name="checkout"),
+    path('rate',product_view.rate_product,name = "rate")
 ]
