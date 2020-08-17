@@ -21,7 +21,7 @@ class Product(models.Model):
 
 # Ratings Model
 class Ratings(models.Model):
-    product_id = models.ForeignKey(
+    product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
         default=1
