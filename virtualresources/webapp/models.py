@@ -18,6 +18,7 @@ class Product(models.Model):
         on_delete=models.CASCADE,
         default=1)
     rating = models.PositiveIntegerField(default=0)
+    avg_rating = models.PositiveIntegerField(default=0)
 
 # Ratings Model
 class Ratings(models.Model):
