@@ -53,15 +53,18 @@ Buy {{product.title}}
 
         <!-- Rating comments -->
 
+        <h1>See all the ratings for this product</h1>
+        <p>Average rating {{product.avg_rating}}</p>
+
         <!-- Create a new Rating form -->
         <form action="/rate?id={{product.id}}" method="post">
             {% csrf_token %}
-            <!-- Add the nicer rating bar -->
+            <!-- TODO Add the nicer rating bar -->
             {{rating_form}}
             <button type="submit">Rate this product!</button>
         </form>
 
-        <!-- TODO add the loop to display  all the ratings -->
+        <!-- TODO Make a better styling -->
         {% if ratings %}
         {% for rating in ratings %}
         <p>{{rating.text}}</p>
