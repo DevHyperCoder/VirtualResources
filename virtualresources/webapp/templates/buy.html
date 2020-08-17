@@ -29,13 +29,13 @@ Buy {{product.title}}
         <h4> {{product.name}}</h4>
 
         <!-- TODO COMPLETE RATING -->
-        <!-- <div class="rating">
+        <div class="rating">
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star-half-o" aria-hidden="true"></i>
-        </div> -->
+        </div>
 
         <p>${{product.price}}</p>
         <input type="number" value="1">
@@ -54,7 +54,15 @@ Buy {{product.title}}
         <!-- Rating comments -->
 
         <h1>See all the ratings for this product</h1>
-        <p>Average rating {{product.avg_rating}}</p>
+        <p>Average rating {{product.avg_rating}}
+            <div class="rating">
+                {% with ''|center:product.avg_rating as range %}
+                    {% for _ in range %}
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+        </p>
 
         <!-- Create a new Rating form -->
         <form action="/rate?id={{product.id}}" method="post">
@@ -67,8 +75,18 @@ Buy {{product.title}}
         <!-- TODO Make a better styling -->
         {% if ratings %}
         {% for rating in ratings %}
+
+        <div class="rating">
+            {% with ''|center:rating.rating_num as range %}
+                {% for _ in range %}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                {% endfor %}
+            {% endwith %}
+        </div>
         <p>{{rating.text}}</p>
-        <p>{{rating.rating_num}}</p>
+<br>
+
+
         {% endfor %}
         {% endif %}
     </div>
