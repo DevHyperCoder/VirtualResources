@@ -57,7 +57,7 @@ Buy {{product.title}}
         <form action="/rate?id={{product.id}}" method="post">
             {% csrf_token %}
             <!-- Add the nicer rating bar -->
-{{rating_form}}
+            {{rating_form}}
             <button type="submit">Rate this product!</button>
         </form>
 
@@ -65,7 +65,7 @@ Buy {{product.title}}
         {% if ratings %}
         {% for rating in ratings %}
         <p>{{rating.text}}</p>
-        
+        <p>{{rating.rating_num}}</p>
         {% endfor %}
         {% endif %}
     </div>
