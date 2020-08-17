@@ -11,6 +11,26 @@ def enough_money_in_user(user: UserProfile, amt: int):
 
     return False
 
+# Method to find out the avg. rating of a product
+def get_avg_rating(product_id :Product):
+    try:
+        product = Product.objects.get(id = product_id)
+        ratings = Ratings.objects.filter(product = product)
+        lenght = Ratings.objects.filter(product = product).count()
+        avg_rating = 0
+        sum_rating = 0
+        for rating in ratings:
+            sum_rating += rating.rating_num
+        avg_rating = sum_rating/lenght
+
+        return avg_rating
+    except Ratings.DoesNotExist:
+        print(f"Can not find rating for product with id = {product_id} ")
+    except Product.DoesNotExist:
+        print(f"Can not find product with id = {product_id} ")
+
+    return 0
+
 
 # Buy a product
 # Shows the page where checkout page with the confirmation and stuff
@@ -66,7 +86,7 @@ def rate_product(request):
     user = request.user
 
     try:
-        product = Product.objects.get(id=prod_id)
+        product:Product = Product.objects.get(id=prod_id)
     except Product.DoesNotExist:
         print(f"Could not find {prod_id}")
 
@@ -77,6 +97,10 @@ def rate_product(request):
         rating.product = product
         rating.save()
 
+        # Update the avg rating
+        product.avg_rating = get_avg_rating(product_id=prod_id)
+        product.save()
+        
     return redirect(f'/buy?id={prod_id}')
 
 
@@ -95,6 +119,7 @@ def checkout(request):
 
 
 def explore_product(request):
+    
     return render(request,
                   "explore.html",
                   {'products': Product.objects.all()})
