@@ -44,12 +44,30 @@ Buy {{product.title}}
         <h3>Product Details <i class="fa fa-indent"></i></h3>
         <br>
         <p>{{product.desc}}</p>
-<br>
+        <br>
         <form action="" method="post">
             {% csrf_token %}
             <input type="text" name="id" value="{{product.id}}" hidden=True>
-            <button class = "btn"type="submit">Buy Now! for ${{product.price}} only!</button>
+            <button class="btn" type="submit">Buy Now! for ${{product.price}} only!</button>
         </form>
+
+        <!-- Rating comments -->
+
+        <!-- Create a new Rating form -->
+        <form action="/rate?id={{product.id}}" method="post">
+            {% csrf_token %}
+            <!-- Add the nicer rating bar -->
+{{rating_form}}
+            <button type="submit">Rate this product!</button>
+        </form>
+
+        <!-- TODO add the loop to display  all the ratings -->
+        {% if ratings %}
+        {% for rating in ratings %}
+        <p>{{rating.text}}</p>
+        
+        {% endfor %}
+        {% endif %}
     </div>
 
 </div>

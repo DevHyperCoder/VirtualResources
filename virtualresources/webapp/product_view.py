@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
-from .forms import CreateProductForm
-from .models import Product, UserProfile
+from .forms import CreateProductForm, CreateRatingForm
+from .models import Product, Ratings, UserProfile
 from django.contrib.auth.decorators import login_required
 
-def enough_money_in_user(user:UserProfile,amt:int):
+# Helper method to check if the user has enough money in his account
+def enough_money_in_user(user: UserProfile, amt: int):
     money = user.money
-    if (money>=amt):
+    if (money >= amt):
         return True
-    
+
     return False
 
 
@@ -16,20 +17,26 @@ def enough_money_in_user(user:UserProfile,amt:int):
 @login_required(login_url="/signin")
 def buy_product(request):
     product_id = request.GET.get("id")
-    product:Product = None
+    product: Product = None
+    ratings: Ratings = None
     try:
-        product = Product.objects.get(id=product_id) 
+        product = Product.objects.get(id=product_id)
+        ratings = Ratings.objects.filter(product=product)
     except Product.DoesNotExist:
         print(f"Could not find a product with id = {product_id}")
+    except Ratings.DoesNotExist:
+        print(f"No reviews for product with id {product_id}")
 
     if request.POST:
-        # TODO do the checks like if user has enough money and stuff
-        if request.user.id == product.seller.id :
-            # Same user
-            return render(request,"buy.html",{"product":product,"same_user":"asdf"})
-        if enough_money_in_user(request.user,product.price):
+
+        # Same user
+        if request.user.id == product.seller.id:
+            return render(request, "buy.html", {"product": product, "same_user": "asdf"})
+
+        if enough_money_in_user(request.user, product.price):
+
             # Deduct from the user
-            user:UserProfile = request.user
+            user: UserProfile = request.user
             old_bal_user = user.money
             new_bal_user = old_bal_user - product.price
             user.money = new_bal_user
@@ -46,23 +53,47 @@ def buy_product(request):
 
             return redirect(f"/checkout?id={product_id}")
         else:
-            return render(request,"buy.html",{"product":product,"not_enough_error":"asdf"})
+            return render(request, "buy.html", {"product": product, "not_enough_error": "asdf"})
 
-    return render(request, "buy.html", {'product': product})
+    return render(request, "buy.html", {'product': product, 'ratings': ratings, 'rating_form': CreateRatingForm()})
 
- 
+
+@login_required(login_url='/signin')
+def rate_product(request):
+    prod_id = request.GET.get("id")
+    product = None
+    ratingForm = CreateRatingForm(request.POST or None)
+    user = request.user
+
+    try:
+        product = Product.objects.get(id=prod_id)
+    except Product.DoesNotExist:
+        print(f"Could not find {prod_id}")
+
+    # Add the rating
+    if ratingForm.is_valid() and product != None:
+        rating: Ratings = ratingForm.save(commit=False)
+        rating.user = user
+        rating.product = product
+        rating.save()
+
+    return redirect(f'/buy?id={prod_id}')
+
+
 @login_required(login_url='/signin')
 def checkout(request):
     prod_id = request.GET.get("id")
     product = None
     try:
-        product =Product.objects.get(id = prod_id)
+        product = Product.objects.get(id=prod_id)
     except Product.DoesNotExist:
         print(f"Could not find {prod_id}")
 
-    return render(request,"checkout.html",{'product':product})
+    return render(request, "checkout.html", {'product': product})
 
 # Explore Products
+
+
 def explore_product(request):
     return render(request,
                   "explore.html",
