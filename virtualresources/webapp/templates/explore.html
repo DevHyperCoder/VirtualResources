@@ -24,16 +24,13 @@ Explore our products
             <h3><a href="/buy?id={{product.id}}">{{product.name}}</a></h4>
                 <p>{{product.desc}}</p>
 
-                <p>Average Rating for this product : {{product.avg_rating}}</p>
-
-                <!-- TODO COMPLETE RATING -->
-                <!-- <div class="rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-            </div> -->
+                <div class="rating">
+                    {% with ''|center:product.avg_rating as range %}
+                        {% for _ in range %}
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        {% endfor %}
+                    {% endwith %}
+                </div> 
 
                 <p>${{product.price}}</p>
         </div>
@@ -46,13 +43,7 @@ Explore our products
                         <i class="fa fa-quote-left" aria-hidden="true"></i>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua.</p>
-                        <!-- <div class="rating">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div> -->
+                        
                         <img src="images/user-1.png" alt="">
                         <h3>Martha Parker</h3>
                     </div>
@@ -60,13 +51,7 @@ Explore our products
                         <i class="fa fa-quote-left" aria-hidden="true"></i>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua.</p>
-                        <!-- <div class="rating">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                </div> -->
+                        
                         <img src="images/user-2.png" alt="">
                         <h3>Eric Harper</h3>
                     </div>
@@ -74,13 +59,7 @@ Explore our products
                         <i class="fa fa-quote-left" aria-hidden="true"></i>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua.</p>
-                        <!-- <div class="rating">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    </div>-->
+                       
                         <img src="images/user-3.png" alt="">
                         <h3>Pepper Potts</h3>
                     </div>
