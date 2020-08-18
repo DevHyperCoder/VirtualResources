@@ -20,21 +20,19 @@ Buy {{product.title}}
 {% if product %}
 
 <!-- Card view -->
-<h2>Buy this product =></h2>
 <div class="row">
-    <!-- TODO center this div or card -->
     <div class="col-4">
+
         <!-- TODO add this image later -->
         <!-- <img src="images/product-1.jpg"> -->
-        <h4> {{product.name}}</h4>
+        <h2> {{product.name}}</h4>
 
-        <!-- TODO COMPLETE RATING -->
         <div class="rating">
+            {% with ''|center:product.avg_rating as range %}
+            {% for _ in range %}
             <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            {% endfor %}
+            {% endwith %}
         </div>
 
         <p>${{product.price}}</p>
@@ -45,32 +43,30 @@ Buy {{product.title}}
         <br>
         <p>{{product.desc}}</p>
         <br>
+
         <form action="" method="post">
             {% csrf_token %}
             <input type="text" name="id" value="{{product.id}}" hidden=True>
             <button class="btn" type="submit">Buy Now! for ${{product.price}} only!</button>
         </form>
 
-        <!-- Rating comments -->
-
-        <h1>See all the ratings for this product</h1>
-        <p>Average rating {{product.avg_rating}}
-            <div class="rating">
-                {% with ''|center:product.avg_rating as range %}
-                    {% for _ in range %}
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    {% endfor %}
-                {% endwith %}
-            </div>
-        </p>
+        <br>
 
         <!-- Create a new Rating form -->
+        <h2>Add a rating for this product</h2>
         <form action="/rate?id={{product.id}}" method="post">
             {% csrf_token %}
             <!-- TODO Add the nicer rating bar -->
             {{rating_form}}
-            <button type="submit">Rate this product!</button>
+            <button class="btn" type="submit">Rate this product!</button>
         </form>
+
+        <br>
+
+        <!-- Rating comments -->
+        <h1>See all the ratings for this product</h1>
+
+        <br>
 
         <!-- TODO Make a better styling -->
         {% if ratings %}
@@ -78,13 +74,13 @@ Buy {{product.title}}
 
         <div class="rating">
             {% with ''|center:rating.rating_num as range %}
-                {% for _ in range %}
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                {% endfor %}
+            {% for _ in range %}
+            <i class="fa fa-star" aria-hidden="true"></i>
+            {% endfor %}
             {% endwith %}
         </div>
         <p>{{rating.text}}</p>
-<br>
+        <br>
 
 
         {% endfor %}
