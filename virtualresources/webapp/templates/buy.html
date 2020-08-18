@@ -71,7 +71,7 @@ Buy {{product.title}}
         <!-- TODO Make a better styling -->
         {% if ratings %}
         {% for rating in ratings %}
-
+<p>{{rating.user.username}}</p>
         <div class="rating">
             {% with ''|center:rating.rating_num as range %}
             {% for _ in range %}
