@@ -19,6 +19,7 @@ def sign_in(request):
         user = authenticate(username = username,password = password)
         login(user = user,request = request)
         if nextA is not "":
+            print(nextA)
             return redirect(nextA)
 
         return redirect('home')
