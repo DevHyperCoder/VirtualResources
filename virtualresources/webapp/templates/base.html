@@ -24,10 +24,14 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/contact">Contact</a></li>
                     <li><a href="/profile">Account</a></li>
+                    <li><a href="/sell">Sell</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="/logout">logout</a></li>
+                    {% else %}
                     <li><a href="/signin">Sign In</a></li>
                     <li><a href="/register">Register</a></li>
-                    <li><a href="/sell">Sell</a></li>
-                    <li><a href="/logout">logout</a></li>
+                    {% endif %}
+                    
                 </ul>
             </nav>
             <img src={% static "images/cart.png" %} width="30px" height="30px">
