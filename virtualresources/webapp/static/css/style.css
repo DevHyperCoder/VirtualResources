@@ -542,6 +542,9 @@ form a{
     padding-left: 100px;
 }
 
+
+
+/* --------Sign up form ----------*/
 .sign-up-form{
     width: 300px;
     box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
@@ -557,6 +560,72 @@ form a{
 }
 
 .sign-up-form h1{
+    color: #ff523b;
+    margin-bottom: 30px;
+}
+
+.input-box{
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #999;
+    outline: none;
+
+}
+
+button{
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.signup-btn{
+    background-color: #ff523b; 
+}
+
+.twitter-btn{
+    background-color: #ff523b;
+}
+
+a{
+    text-decoration: none;
+}
+
+hr{
+    margin-top: 20px;
+    width: 80%;
+}
+
+.or{
+    background: #fff;
+    width: 30px;
+    margin: -19px auto 10px;
+}
+
+/* --------Register form----------*/
+
+.reg-form{
+    width: 300px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+    background: #fff;
+    padding: 20px;
+    margin: 8% auto 0;
+    text-align: center;
+}
+
+
+.reg-form{
+    margin-bottom: 200px;
+}
+
+.reg-form h1{
     color: #ff523b;
     margin-bottom: 30px;
 }
