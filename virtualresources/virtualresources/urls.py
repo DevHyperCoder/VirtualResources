@@ -30,5 +30,6 @@ urlpatterns = [
     path('buy', product_view.buy_product, name='buy'),
     path('checkout', product_view.checkout, name="checkout"),
     path('rate', product_view.rate_product, name="rate"),
-    path('profile', profile_views.profile, name="profile")
+    path('profile', profile_views.profile, name="profile"),
+    path('gift',product_view.gift_card,name='gift')
 ]

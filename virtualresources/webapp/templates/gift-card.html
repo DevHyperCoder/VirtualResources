@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+Gift Card
+{% endblock %}
+
+{% block body %}
+
+{% if money %}
+<p>Congo! You have recieved ${{money}}</p>
+{% endif %}
+
+<form action="/gift" method="post">
+    {% csrf_token %}
+    <button class="btn" type="submit">Give me a gift card</button>
+</form>
+
+{% endblock %}

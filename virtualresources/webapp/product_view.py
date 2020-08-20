@@ -145,3 +145,18 @@ def sell_product(request):
         "sell.html",
         {'form': product_creation_form}
     )
+
+import random 
+
+@login_required(login_url='signin/')
+def gift_card(request):
+    if request.POST:
+        user:UserProfile = request.user
+        gift_card_money = random.randint(0,1000)
+
+        user.money += gift_card_money
+        user.save()
+
+        return render(request,'gift-card.html',{'money':gift_card_money})
+    
+    return render(request,'gift-card.html')
