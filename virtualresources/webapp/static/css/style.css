@@ -160,6 +160,13 @@ font-size: 14px;
     transform: translateY(-5px);
 }
 
+.col-4{
+    text-align: center;
+    padding: 40px 30px;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
 /*--------- offer -------*/
 
 .offer{
@@ -520,3 +527,4 @@ form a{
     transform: translate(100px);
     transition: transform 1s;
 }
+
