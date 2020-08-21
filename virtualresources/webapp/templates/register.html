@@ -22,5 +22,21 @@ SignUp
     </div>
     {% endfor %}
     {% endif %}
-    <button class = 'btn' type="submit">Register</button>
+
+    <div class="reg-form">
+        <h1>Register Form</h1>
+        <form>
+        <input type="email" class="input-box" placeholder="Your Username">
+        <input type="email" class="input-box" placeholder="Your Email">
+        <input type="password" class="input-box" placeholder="Your Password">
+        <input type="password" class="input-box" placeholder="Enter the same password as before for verfication">
+        <button type="button" class="signup-btn">Register</button>
+
+
+        
+        <button type="button" class="twitter-btn">Login with twitter</button>
+        <p>Do you have a account ?</p> <a href="#">Sign in</a></p>
+        </form>
+    </div>
+    
     {% endblock %}
