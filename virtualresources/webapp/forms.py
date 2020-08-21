@@ -30,8 +30,8 @@ class CreateRatingForm(forms.ModelForm):
 
 # RegisterForm 
 class RegisterForm(UserCreationForm):
-    username = forms.CharField(max_length=50)
-    email = forms.CharField(max_length=200)
+    username = forms.CharField(max_length=50,label="Username")
+    email = forms.CharField(max_length=200,label="Email")
 
     class Meta:
         model = UserProfile

@@ -5,36 +5,33 @@ SignUp
 {% endblock %}
 
 {% block body %}
+<div class="reg-form">
+    <h1>Register Form</h1>
 <form action="/register" method="post">
     {% csrf_token %}
-    {{form}}
-    {% if form.errors %}
+    {% load widget_tweaks%}
+
     {% for field in form %}
-    {% for error in field.errors %}
-    <div class="alert alert-danger">
-        <strong>{{ error|escape }}</strong>
-    </div>
-    {% endfor %}
-    {% endfor %}
-    {% for error in form.non_field_errors %}
-    <div class="alert alert-danger">
-        <strong>{{ error|escape }}</strong>
-    </div>
-    {% endfor %}
-    {% endif %}
 
-    <div class="reg-form">
-        <h1>Register Form</h1>
-        <form>
-        <input type="email" class="input-box" placeholder="Your Username">
-        <input type="email" class="input-box" placeholder="Your Email">
-        <input type="password" class="input-box" placeholder="Your Password">
-        <input type="password" class="input-box" placeholder="Enter the same password as before for verfication">
-        <button type="button" class="signup-btn">Register</button>
-
-
+    {% render_field field class+="input-box" placeholder+=field.label %}            
+    {% endfor %}
+        <button type="submit" class="signup-btn">Register</button>
         
-        <button type="button" class="twitter-btn">Login with twitter</button>
+        {% if form.errors %}
+        {% for field in form %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+
         <p>Do you have a account ?</p> <a href="#">Sign in</a></p>
         </form>
     </div>
