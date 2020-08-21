@@ -4,12 +4,10 @@
 {% endblock %}
 
 {% block body %}
-
-<h1>Welcome, {{user.username}}</h1>
+<div class="about-form">
+<h1 id ="profileh1">Welcome, {{user.username}}</h1>
 <br>
-<p>{{user.bio}}</p>
-<br><br>
 <h2>You have ${{user.money}} left in your account</h2>
-
+</div>
 
 {% endblock %}

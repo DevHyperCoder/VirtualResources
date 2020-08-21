@@ -6,13 +6,18 @@ Gift Card
 
 {% block body %}
 
-{% if money %}
-<p>Congo! You have recieved ${{money}}</p>
-{% endif %}
 
+<div class="about-form">
+    <h1>Purchase a gift card</h1>
+
+    {% if money %}
+    <h2>Congo! You have recieved ${{money}}</h2>
+{% else %}
 <form action="/gift" method="post">
     {% csrf_token %}
-    <button class="btn" type="submit">Give me a gift card</button>
-</form>
+    <button class="signup-btn" type="submit"><strong> Give me a gift card</strong></button>
+    {% endif %}
 
+</form>
+</div>
 {% endblock %}
