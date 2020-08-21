@@ -620,6 +620,33 @@ hr{
     text-align: center;
 }
 
+.about-form{
+    width: 600px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+    background: #fff;
+    padding: 20px;
+    margin: 8% auto 0;
+    margin-bottom: 200px;
+    line-height: 1.7;
+}
+#profileh1{
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+
+}
+.about{
+    margin-left: 20px;
+}
+
+.about-form h1{
+    color: #ff523b;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.about-form h2{
+    text-align: center;
+}
 
 .reg-form{
     margin-bottom: 200px;
