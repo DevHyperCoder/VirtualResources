@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block body %}
+<<<<<<< HEAD
+{% if next %}
+<form action="/signin?next={{next}}" method="POST">
+    {% else %}
+    <form action="/signin" method="post">
+        {% endif %}
+
+        {% csrf_token %}
+        {{form}}
+        {% if form.errors %}
+        {% for field in form %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <!-- Add the form elements here @Beemo -->
+
+                
+        <div class="sign-up-form">
+            <h1>Sign In</h1>
+            <form>
+            <input type="email" class="input-box" placeholder="Your Username">
+            <input type="password" class="input-box" placeholder="Your Password">
+            <button type="button" class="signup-btn">Sign in</button>
+=======
+<div class="sign-up-form">
+    <h1>Sign In</h1>
+    {% if next %}
+    <form action="/signin?next={{next}}" method="POST">
+        {% else %}
+        <form action="/signin" method="post">
+            {% endif %}
+>>>>>>> 1b9a5f57d110ef4abb01360bacaaebd3c0ffbd48
+
+            {% csrf_token %}
+
+            {% load widget_tweaks%}
+
+            {% for field in form %}
+
+            {% render_field field class+="input-box" placeholder+=field.label %}
+            
+<<<<<<< HEAD
+            <button type="button" class="twitter-btn">Login with twitter</button>
+            <p>Do you have an account ?</p> <a href="#">Sign in</a></p>
+            </form>
+        </div>
+    {% endblock %}
+=======
+            <!-- <input type="email" class="input-box" placeholder="Your Username">
+            <input type="password" class="input-box" placeholder="Your Password"> -->
+            {% endfor %}
+            <button type="submit" class="signup-btn">Sign In</button>
+
+
+            {% if form.errors %}
+            {% for field in form %}
+            {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+            {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <p>Do you have an account ? <a href="#">Sign in</a></p>
+        </form>
+</div>
+
+{% endblock %}
+>>>>>>> 1b9a5f57d110ef4abb01360bacaaebd3c0ffbd48
